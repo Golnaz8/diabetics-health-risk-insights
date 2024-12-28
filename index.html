@@ -23,9 +23,7 @@
       <div class="row">
         <div class="col-md-12 p-5 text-center bg-light header-container">
           <h1>Risk Factors for Diabetes and Heart Disease Analysis</h1>
-          <p>
-            Select any territory or press on buttons to see the analysis
-          </p>
+          <p>Select any location or press on buttons to see the analysis</p>
         </div>
       </div>
       <br />
@@ -54,7 +52,7 @@
       <div class="row">
         <div class="col-md-6">
           <div class="card card-body">
-            <h6 style="color: #0d6efd; font-weight: bold;">Territory:</h6>
+            <h6 style="color: #0d6efd; font-weight: bold">Location:</h6>
             <select
               id="selDataset"
               onchange="optionChanged(this.value)"
@@ -69,31 +67,66 @@
         </div>
       </div>
 
-      <!-- Chart Section -->
-      <div class="row mt-3">
-        <div class="col-md-12">
-          <div id="bar"></div>
+
+      <br />
+
+ <div class="row">
+  <!-- Scatter Chart: HbA1c Level vs BMI -->
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <div id="scatter-bmi"></div>
         </div>
       </div>
-
-      <!-- chart.js Section -->
-      <div class="row mt-3">
-        <div class="col-md-12">
-          <div id="js-chart"></div>
-        </div>
-      </div>
-
-      <!-- Map Section -->
-      <div class="row mt-3">
-        <div class="col-md-12">
-          <div id="map"></div>
+  </div>
+  <!-- Scatter Chart: HbA1c Level vs Blood Glucose Level -->
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <div id="scatter-glucose"></div>
         </div>
       </div>
     </div>
+ </div>
+
+
+<!-- Scatter Chart Section -->
+<div class="row mt-3 mb-3">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-body">
+      <div id="box-heart-hba1c"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <!-- Bar Chart Section -->
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-body">
+      <div id="bar"></div>
+      </div>
+    </div>
+  </div>
+
+<!-- Bar Chart Section -->
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-body">
+      <div id="bar-chart"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <script src="./static/js/app.js"></script>
+    <script src="./assets/js/app.js"></script>
 
     <!-- Placeholder functions for buttons -->
     <script>
