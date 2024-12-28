@@ -30,13 +30,6 @@ body {
     overflow: hidden;
   }
   
-
-  /* .card {
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-  } */
-
   .card-primary {
     background-color: #e9f2ff;
   }
@@ -76,4 +69,12 @@ body {
 
   p {
     color: #004db3;
+  }
+
+  #map-container {
+    height: 100vh; 
+  }
+  
+  #map {
+    height: 90vh;
   }
