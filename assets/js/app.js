@@ -80,6 +80,102 @@ function buildCharts(territoryId) {
         return;
       }
 
+      // Regression Helper Function
+      function calculateRegression(x, y) {
+        const n = x.length;
+        const sumX = x.reduce((a, b) => a + b, 0);
+        const sumY = y.reduce((a, b) => a + b, 0);
+        const sumXY = x.reduce((sum, xi, i) => sum + xi * y[i], 0);
+        const sumX2 = x.reduce((sum, xi) => sum + xi * xi, 0);
+
+        const slope = (n * sumXY - sumX * sumY) / (n * sumX2 - sumX * sumX);
+        const intercept = (sumY - slope * sumX) / n;
+
+        // Regression line points
+        const regressionLine = x.map((xi) => slope * xi + intercept);
+
+        return { slope, intercept, regressionLine };
+      }
+
+      // Scatter Plot: HbA1c Level vs BMI
+      const hbA1c = filteredData.map((record) => record.hbA1c_level);
+      const bmi = filteredData.map((record) => record.bmi);
+      const {
+        slope: bmiSlope,
+        intercept: bmiIntercept,
+        regressionLine: bmiRegressionLine,
+      } = calculateRegression(hbA1c, bmi);
+
+      const hbA1cBmiTrace = {
+        x: hbA1c,
+        y: bmi,
+        mode: "markers",
+        marker: { size: 10, color: "green" },
+        name: "Data Points",
+        type: "scatter",
+      };
+
+      const hbA1cBmiRegressionTrace = {
+        x: hbA1c,
+        y: bmiRegressionLine,
+        mode: "lines",
+        name: `y = ${bmiSlope.toFixed(2)}x + ${bmiIntercept.toFixed(2)}`,
+        line: { color: "red", dash: "dash" },
+      };
+
+      const hbA1cBmiLayout = {
+        title: "HbA1c Level vs BMI with Regression Line",
+        xaxis: { title: "HbA1c Level" },
+        yaxis: { title: "BMI" },
+      };
+
+      Plotly.newPlot(
+        "scatter-bmi",
+        [hbA1cBmiTrace, hbA1cBmiRegressionTrace],
+        hbA1cBmiLayout
+      );
+
+      // Scatter Plot: HbA1c Level vs Blood Glucose Level
+      const bloodGlucose = filteredData.map(
+        (record) => record.blood_glucose_level
+      );
+      const {
+        slope: glucoseSlope,
+        intercept: glucoseIntercept,
+        regressionLine: glucoseRegressionLine,
+      } = calculateRegression(hbA1c, bloodGlucose);
+
+      const hbA1cBloodGlucoseTrace = {
+        x: hbA1c,
+        y: bloodGlucose,
+        mode: "markers",
+        marker: { size: 10, color: "purple" },
+        name: "Data Points",
+        type: "scatter",
+      };
+
+      const hbA1cBloodGlucoseRegressionTrace = {
+        x: hbA1c,
+        y: glucoseRegressionLine,
+        mode: "lines",
+        name: `y = ${glucoseSlope.toFixed(2)}x + ${glucoseIntercept.toFixed(
+          2
+        )}`,
+        line: { color: "red", dash: "dash" },
+      };
+
+      const hbA1cBloodGlucoseLayout = {
+        title: "HbA1c Level vs Blood Glucose Level with Regression Line",
+        xaxis: { title: "HbA1c Level" },
+        yaxis: { title: "Blood Glucose Level" },
+      };
+
+      Plotly.newPlot(
+        "scatter-glucose",
+        [hbA1cBloodGlucoseTrace, hbA1cBloodGlucoseRegressionTrace],
+        hbA1cBloodGlucoseLayout
+      );
+
       // Bar Chart: Race vs Diabetes Count
       const races = [
         { name: "African American", key: "race:AfricanAmerican" },
@@ -111,51 +207,6 @@ function buildCharts(territoryId) {
       };
 
       Plotly.newPlot("bar", [raceTrace], raceLayout);
-
-      // Scatter Plot: HbA1c Level vs BMI
-      const hbA1c = filteredData.map((record) => record.hbA1c_level);
-      const bmi = filteredData.map((record) => record.bmi);
-
-      const hbA1cBmiTrace = {
-        x: hbA1c,
-        y: bmi,
-        mode: "markers",
-        marker: { size: 10, color: "green" },
-        type: "scatter",
-      };
-
-      const hbA1cBmiLayout = {
-        title: "HbA1c Level vs BMI",
-        xaxis: { title: "HbA1c Level" },
-        yaxis: { title: "BMI" },
-      };
-
-      Plotly.newPlot("scatter-bmi", [hbA1cBmiTrace], hbA1cBmiLayout);
-
-      // Scatter Plot: HbA1c Level vs Blood Glucose Level
-      const bloodGlucose = filteredData.map(
-        (record) => record.blood_glucose_level
-      );
-
-      const hbA1cBloodGlucoseTrace = {
-        x: hbA1c,
-        y: bloodGlucose,
-        mode: "markers",
-        marker: { size: 10, color: "purple" },
-        type: "scatter",
-      };
-
-      const hbA1cBloodGlucoseLayout = {
-        title: "HbA1c Level vs Blood Glucose Level",
-        xaxis: { title: "HbA1c Level" },
-        yaxis: { title: "Blood Glucose Level" },
-      };
-
-      Plotly.newPlot(
-        "scatter-glucose",
-        [hbA1cBloodGlucoseTrace],
-        hbA1cBloodGlucoseLayout
-      );
 
       // Calculate Diabetes Cases by Age Group
       const ageBins = [0, 20, 40, 60, 80];
