@@ -74,8 +74,15 @@ function showDiabetesMap() {
     document.getElementById("main-content").style.display = "none";
     document.getElementById("map-container").style.display = "block";
 
+    
+    const mapContainer = document.getElementById("map-container");
+    const mapElement = document.getElementById("map");
+
+    mapElement.style.height = "90vh"; 
+    mapContainer.style.height = "100vh";
+
     // Initialize the map with a center point and zoom level
-    const map = L.map("map").setView([37.8, -96], 4);
+    const map = L.map("map").setView([37.8, -96], 5);
 
     // Add a tile layer for the map background
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {

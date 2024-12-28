@@ -70,11 +70,3 @@ body {
   p {
     color: #004db3;
   }
-
-  #map-container {
-    height: 100vh; 
-  }
-  
-  #map {
-    height: 90vh;
-  }
