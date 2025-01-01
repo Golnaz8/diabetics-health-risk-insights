@@ -118,6 +118,31 @@ function heartDiseasMap() {
                 `)
                 .addTo(map);
         });
+
+        // Add a legend to the map
+        const legend = L.control({ position: "bottomright" });
+
+        legend.onAdd = function () {
+            const div = L.DomUtil.create("div", "legend");
+            const ranges = ["0-4%", "4-5%", "5-10%", ">10%"];
+            const colors = ["#ADFF2F", "#FFD700", "#FF8C00", "#FF4500"];
+
+            ranges.forEach((range, i) => {
+                div.innerHTML += `
+                    <div style="display: flex; align-items: center; margin-bottom: 5px;">
+                        <span style="background:${colors[i]}; width: 20px; height: 20px; margin-right: 8px; display: inline-block;"></span>
+                        ${range}
+                    </div>`;
+            });
+
+            div.style.background = "white";
+            div.style.padding = "10px";
+            div.style.borderRadius = "8px";
+            div.style.boxShadow = "0 2px 6px rgba(0, 0, 0, 0.3)";
+            return div;
+        };
+
+        legend.addTo(map);
     });
 }
 
