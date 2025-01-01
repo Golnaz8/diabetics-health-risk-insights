@@ -38,11 +38,17 @@
       <!-- Analysis Buttons -->
       <div class="row mb-3">
         <div class="col-md-12 text-center">
-          <button class="btn btn-primary btn-lg mx-2" onclick="showDiabetesMap()">
+          <button
+            class="btn btn-primary btn-lg mx-2"
+            onclick="showDiabetesMap()"
+          >
             Diabetes Map
           </button>
-          <button class="btn btn-primary btn-lg mx-2" onclick="heartDiseasMap()">
-            Heart Diseas Map
+          <button
+            class="btn btn-primary btn-lg mx-2"
+            onclick="heartDiseasMap()"
+          >
+            Heart Disease Map
           </button>
         </div>
       </div>
@@ -53,7 +59,10 @@
         <div class="col-md-6">
           <div class="card card-body">
             <h6 style="color: #0d6efd; font-weight: bold">Location:</h6>
-            <select id="selDataset" onchange="optionChanged(this.value)"></select>
+            <select
+              id="selDataset"
+              onchange="optionChanged(this.value)"
+            ></select>
           </div>
         </div>
         <div class="col-md-6">
@@ -116,15 +125,21 @@
           </div>
         </div>
       </div>
-    </div> <!-- Closing div for main-content -->
+    </div>
+    <!-- Closing div for main-content -->
 
-    <!-- Map Container -->
-    <div id="map-container" style="display: none;">
-      <div id="map" style="height: 600px; width: 100%;"></div>
-      <button
-        class="btn btn-secondary mt-3"
-        onclick="showMainPage()"
-      >
+    <!--Diabetes Map Container -->
+    <div id="map-container" style="display: none">
+      <div id="map" style="height: 600px; width: 100%"></div>
+      <button class="btn btn-secondary mt-3" onclick="showMainPage()">
+        Back to Main Page
+      </button>
+    </div>
+
+    <!--Heart-Disease Map Container -->
+    <div id="heart-map-container" style="display: none">
+      <div id="heart-map" style="height: 600px; width: 100%"></div>
+      <button class="btn btn-secondary mt-3" onclick="showMainPage()">
         Back to Main Page
       </button>
     </div>
@@ -138,5 +153,6 @@
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="./assets/js/app.js"></script>
     <script src="./assets/js/map.js"></script>
+    <script src="./assets/js/heart-map.js"></script>
   </body>
 </html>
