@@ -32,11 +32,17 @@ function buildMetadata(territoryId) {
           const diabetesCount = metadata.filter(
             (record) => record.diabetes === 1
           ).length;
-          const noDiabetesCount = metadata.length - diabetesCount;
+          // const noDiabetesCount = metadata.length - diabetesCount;
+
+          const heartDeaseseCount = metadata.filter(
+            (record) => record.heart_disease === 1
+          ).length;
+
+      
 
           panel.append("p").text(`Total Records: ${metadata.length}`);
           panel.append("p").text(`Diabetes Cases: ${diabetesCount}`);
-          panel.append("p").text(`No Diabetes Cases: ${noDiabetesCount}`);
+          panel.append("p").text(`Heart Deasese Cases: ${heartDeaseseCount}`);
         })
         .catch((err) => console.error("Error fetching clinical data:", err));
     })
