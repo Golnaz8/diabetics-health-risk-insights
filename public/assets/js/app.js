@@ -49,7 +49,7 @@ function buildCharts(territoryId) {
   fetch(`/api/clinical_data/${territoryId}`)
     .then((response) => response.json())
     .then((data) => {
-      console.log("Filtered Data:", data); // Inspect the structure of the data
+      console.log("Filtered Data:", data);
       const filteredData = data;
 
       if (filteredData.length === 0) {
@@ -320,9 +320,8 @@ function optionChanged(territoryId) {
   buildMetadata(territoryId);
 }
 
-// Make sure this function is globally accessible
-window.optionChanged = optionChanged;
 
+window.optionChanged = optionChanged;
 
 
 // Run the initialization function on page load
