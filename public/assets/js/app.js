@@ -301,12 +301,14 @@ function init() {
       // Build initial charts and metadata
       buildCharts(firstTerritory);
       buildMetadata(firstTerritory);
+      buildGenderDiabetesChart(firstTerritory);
 
       // Listen for changes to the dropdown
       selector.on("change", function () {
         const newTerritory = d3.select(this).property("value");
         buildCharts(newTerritory);
         buildMetadata(newTerritory);
+        buildGenderDiabetesChart(newTerritory);
       });
     })
     .catch((err) => console.error("Error fetching locations:", err));
