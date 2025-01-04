@@ -312,6 +312,17 @@ function init() {
     .catch((err) => console.error("Error fetching locations:", err));
 }
 
+
+function optionChanged(territoryId) {
+  buildCharts(territoryId);
+  buildMetadata(territoryId);
+}
+
+// Make sure this function is globally accessible
+window.optionChanged = optionChanged;
+
+
+
 // Run the initialization function on page load
 init();
 
