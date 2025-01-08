@@ -106,18 +106,21 @@ To start the server, run:
 
 ## Screenshots:
 
-Below are some screenshots showcasing the project’s features, visualizations, and interactive UI:
+Below are some screenshots showcasing the project’s workflow, features, visualizations, and interactive UI:
 
+![clinical_project_diagram](https://github.com/user-attachments/assets/d08c2eb6-4194-4ad0-957c-f3518693679b)
+
+<img width="582" alt="image" src="https://github.com/user-attachments/assets/c59179dd-64b1-4a80-9126-f1b8c3ef5a89" />
+
+<img width="830" alt="image" src="https://github.com/user-attachments/assets/97e6638c-206f-4df8-a41c-c97efc188798" />
+
+<img width="831" alt="image" src="https://github.com/user-attachments/assets/20116e9e-bc34-4a7c-a466-896173555658" />
 
 <img width="675" alt="image" src="https://github.com/user-attachments/assets/972dde27-146b-4d0d-8d4e-07827faa9c59" />
 
 <img width="656" alt="image" src="https://github.com/user-attachments/assets/7122fb5c-15cd-4dc0-bcdc-485614b6b767" />
 
 <img width="655" alt="image" src="https://github.com/user-attachments/assets/ff6d0796-91b3-4366-a5bf-c38377e72720" />
-
-<img width="830" alt="image" src="https://github.com/user-attachments/assets/97e6638c-206f-4df8-a41c-c97efc188798" />
-
-<img width="831" alt="image" src="https://github.com/user-attachments/assets/20116e9e-bc34-4a7c-a466-896173555658" />
 
 
 
