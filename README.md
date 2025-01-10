@@ -144,6 +144,12 @@ This project leverages several technologies to process and analyze election data
 - **GitHub**: Hosts the repository online, allowing for backup, sharing, and documentation hosting, including this README file.
 
 
+## Deployment
+The dashboard is live on GitHub Pages: https://golnaz8.github.io/clinical-analysis/
+
+
+## Github URL
+https://github.com/Golnaz8/diabetics-health-risk-insights
 
 ## Credits
 
